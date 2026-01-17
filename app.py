@@ -21,8 +21,8 @@ def get_base64_of_bin_file(bin_file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-# Load background image
-bg_image_path = r"C:\Users\shree\OneDrive\2nd yr\ADR-hepatatis\bg_pic.png"
+# Load background image (relative path for Streamlit Cloud)
+bg_image_path = "bg_pic.png"
 
 if os.path.exists(bg_image_path):
     bg_img_base64 = get_base64_of_bin_file(bg_image_path)
@@ -50,11 +50,11 @@ if os.path.exists(bg_image_path):
     </style>
     """
 else:
-    # Fallback to solid color if image not found
+    # Fallback to gradient if image not found
     bg_img_css = """
     <style>
         .stApp {
-            background-color: #f0f4f8;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
     </style>
     """
@@ -149,7 +149,7 @@ st.markdown("""
     
     /* Style the sidebar */
     [data-testid="stSidebar"] {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.95);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -157,15 +157,9 @@ st.markdown("""
 # Helper: Load Model (Cached)
 @st.cache_resource
 def load_model_resources():
-    # Try relative path first
+    """Load model and scaler from relative paths (for Streamlit Cloud deployment)"""
     model_path = "phase3_models/adr_classifier.pkl"
     scaler_path = "phase3_models/feature_scaler.pkl"
-    
-    # If not found, try absolute path
-    if not os.path.exists(model_path):
-        base_dir = r"C:\Users\shree\OneDrive\2nd yr\ADR-hepatatis"
-        model_path = os.path.join(base_dir, "phase3_models", "adr_classifier.pkl")
-        scaler_path = os.path.join(base_dir, "phase3_models", "feature_scaler.pkl")
     
     if not os.path.exists(model_path) or not os.path.exists(scaler_path):
         return None, None
@@ -215,7 +209,7 @@ DRUG_RISK_SCORES = {
 # Header
 st.markdown("""
 <div class="main-header">
-    <h1>Clinical ADR Predictor</h1>
+    <h1>⚕️ Clinical ADR Predictor</h1>
     <p>Hepatitis B Adverse Drug Reaction Risk Assessment System</p>
 </div>
 """, unsafe_allow_html=True)
@@ -376,38 +370,35 @@ if predict_btn:
                 "Color": color
             })
             
-            # Display Card - Category name in BLACK
+            # Display Card
             with (grid_col1 if idx % 2 == 0 else grid_col2):
                 st.markdown(f"""
                 <div class="result-card {risk_class}">
-                    <h3 style="margin:0; font-size:1rem; color: black; font-weight: 700; background: color;">{category_name}</h3>
+                    <h3 style="margin:0; font-size:1rem; color: #002244; font-weight: 700;">{category_name}</h3>
                     <div style="display:flex; align-items:baseline; justify-content:space-between; margin-top:0.5rem;">
                         <span style="font-size:1.8rem; font-weight:bold; color:{color};">{risk_percent:.1f}%</span>
-                        <span style="font-size:0.9rem; color: black; font-weight:600;">{icon} {risk_level} Risk</span>
+                        <span style="font-size:0.9rem; color: #2c3e50; font-weight:600;">{icon} {risk_level} Risk</span>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
 
-        # Chart with WHITE axis labels
+        # Chart
         st.markdown("#### Comparative Risk Analysis")
         df_risk = pd.DataFrame(risk_data)
         
         fig, ax = plt.subplots(figsize=(8, 4))
-        fig.patch.set_alpha(0.0)  # Transparent figure background
-        ax.patch.set_alpha(0.95)  # Semi-transparent plot background
+        fig.patch.set_facecolor('white')
         ax.patch.set_facecolor('white')
         
         sns.barplot(data=df_risk, x="Probability", y="Category", palette=[d['Color'] for d in risk_data], ax=ax)
         ax.set_xlim(0, 100)
-        ax.set_xlabel("Probability (%)", fontweight='bold', color='white')
-        ax.set_ylabel("", color='white')
-        ax.tick_params(axis='x', colors='white')
-        ax.tick_params(axis='y', colors='white')
+        ax.set_xlabel("Probability (%)", fontweight='bold')
+        ax.set_ylabel("")
         sns.despine(left=True, bottom=True)
         ax.grid(axis='x', alpha=0.3, linestyle='--')
         st.pyplot(fig)
         
-        # Recommendations - ALL WITH WHITE TEXT ON COLORED BACKGROUNDS
+        # Recommendations
         st.markdown("### Clinical Recommendations")
         
         high_risks = [d['Category'] for d in risk_data if d['Probability'] > 50]
@@ -434,7 +425,7 @@ if predict_btn:
                 <h4 style="color: #002244; margin: 0 0 0.75rem 0; font-size: 1.1rem;">🔍 Specific Monitoring Protocols:</h4>
             """, unsafe_allow_html=True)
             
-            # Specific recommendations with colored backgrounds
+            # Specific recommendations
             if "Hepatotoxicity" in high_risks:
                 st.markdown("""
                 <div style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); 
