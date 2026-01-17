@@ -1,0 +1,58 @@
+
+================================================================================
+PHASE 2 ANALYSIS SUMMARY
+================================================================================
+
+COHORT STRATIFICATION:
+  HBV_MONO: 17,900 patients
+  HIV_HBV_COINFECTION: 74,428 patients
+  HBV_AUTOIMMUNE: 3,378 patients
+  HBV_OTHER: 64,751 patients
+
+DRUG-ADR PAIRS BY COHORT:
+  HBV_MONO:
+    Cases: 17,900
+    ADR records: 69,338
+    Unique ADRs: 4,245
+  HIV_HBV_COINFECTION:
+    Cases: 74,428
+    ADR records: 385,132
+    Unique ADRs: 5,686
+
+SIGNAL DETECTION SUMMARY:
+  HBV_MONO: 476 significant signals detected
+  HIV_HBV_COINFECTION: 647 significant signals detected
+
+  Top 10 Strongest Signals (by ROR):
+    TENOFOVIR + Tooth loss (HIV_HBV_COINFECTION)
+      ROR: 2596.48 (95% CI: 365.67-18436.73)
+      Cases: 10602, Severity: 1.13
+    TELBIVUDINE + Brain malformation (HIV_HBV_COINFECTION)
+      ROR: 2479.60 (95% CI: 682.39-9010.11)
+      Cases: 5, Severity: 3.20
+    TELBIVUDINE + Pulmonary hypoplasia (HIV_HBV_COINFECTION)
+      ROR: 2324.03 (95% CI: 1065.41-5069.50)
+      Cases: 15, Severity: 3.60
+    INTERFERON + Hypertrichosis (HIV_HBV_COINFECTION)
+      ROR: 1657.35 (95% CI: 203.30-13510.73)
+      Cases: 7, Severity: 3.00
+    ENTECAVIR + Starvation (HIV_HBV_COINFECTION)
+      ROR: 1640.60 (95% CI: 346.00-7778.99)
+      Cases: 8, Severity: 2.00
+    ENTECAVIR + Ketoacidosis (HIV_HBV_COINFECTION)
+      ROR: 1197.39 (95% CI: 123.98-11564.32)
+      Cases: 3, Severity: 3.00
+    TELBIVUDINE + Congenital central nervous system anomaly (HIV_HBV_COINFECTION)
+      ROR: 844.62 (95% CI: 414.57-1720.80)
+      Cases: 15, Severity: 3.60
+    INTERFERON + Gingival hypertrophy (HIV_HBV_COINFECTION)
+      ROR: 828.66 (95% CI: 171.47-4004.70)
+      Cases: 7, Severity: 3.00
+    LAMIVUDINE + Temperature regulation disorder (HIV_HBV_COINFECTION)
+      ROR: 645.04 (95% CI: 90.46-4599.83)
+      Cases: 223, Severity: 2.87
+    TELBIVUDINE + HIV associated nephropathy (HBV_MONO)
+      ROR: 637.07 (95% CI: 114.36-3549.08)
+      Cases: 4, Severity: 1.00
+
+================================================================================

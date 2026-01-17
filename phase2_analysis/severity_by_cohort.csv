@@ -1,0 +1,3 @@
+cohort,n_cases,n_adr_records,mean_severity,median_severity,severity_1_count,severity_2_count,severity_3_count,severity_4_count,severity_5_count
+HBV_MONO,17900,69338,2.173440249213995,1.0,37773,381,20425,2903,7856
+HIV_HBV_COINFECTION,74428,385132,1.6227838766968208,1.0,285646,6817,66250,5139,21280

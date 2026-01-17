@@ -1,0 +1,41 @@
+
+================================================================================
+FEATURE EXTRACTION SUMMARY
+================================================================================
+
+Total Patients: 169,565
+
+FEATURE GROUPS:
+
+1. Demographics:
+   - Age (continuous + 4 categories)
+   - Sex (Male/Female/Unknown)
+   - Region (North America/Europe/Asia/Other)
+   - Reporter type (MD/Lawyer/Consumer)
+
+2. Disease Severity:
+   - Death indicator
+   - Life-threatening indicator
+   - Hospitalization indicator
+   - Severe disease score (0-5)
+
+3. Polypharmacy:
+   - Drug count (continuous)
+   - Polypharmacy categories (1-2 / 3-5 / 6+ drugs)
+
+4. Treatment Context:
+   - Cohort (HBV_MONO / HIV_HBV / AUTOIMMUNE)
+   - Cohort binary indicators
+
+5. Drug Features:
+   - Drug class (5 drugs)
+   - Drug risk score (from Phase 2 ROR)
+
+6. Target Labels (ADR Categories):
+   - hepatotoxicity: 2,629.0 (1.6%)
+   - nephrotoxicity: 28,688.0 (16.9%)
+   - bone_tooth: 30,210.0 (17.8%)
+   - hematologic: 4,473.0 (2.6%)
+   - neurologic: 5,100.0 (3.0%)
+
+================================================================================

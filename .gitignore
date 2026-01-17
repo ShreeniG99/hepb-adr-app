@@ -1,0 +1,50 @@
+# Create comprehensive .gitignore
+@"
+# Data files - DO NOT COMMIT
+Datasets/
+hepatitis_b_data/
+phase2_analysis/
+phase2_visualizations/
+phase3_features/
+
+# Large data files
+*.csv
+*.parquet
+*.xlsx
+*.xls
+
+# Except these small files
+!requirements.txt
+!model_performance.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Backup folder
+backup/
+"@ | Out-File -FilePath .gitignore -Encoding UTF8
+
+Write-Host "✅ .gitignore created!" -ForegroundColor Green

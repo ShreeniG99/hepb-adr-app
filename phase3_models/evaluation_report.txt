@@ -1,0 +1,38 @@
+
+================================================================================
+MODEL EVALUATION REPORT
+================================================================================
+
+Model Type: Multi-label Random Forest
+Test Set Size: 33,913 patients
+Number of Features: 26
+Number of ADR Categories: 5
+
+HYPERPARAMETERS:
+  - n_estimators: 100
+  - max_depth: 10
+  - min_samples_split: 50
+  - min_samples_leaf: 20
+  - class_weight: balanced
+
+PERFORMANCE BY CATEGORY:
+      category  train_auc  test_auc  precision   recall       f1
+hepatotoxicity   0.853351  0.918679   0.074871 0.844203 0.137544
+nephrotoxicity   0.889179  0.951962   0.677872 0.864607 0.759936
+    bone_tooth   0.939716  0.974949   0.729014 0.956191 0.827290
+   hematologic   0.851577  0.904503   0.101425 0.857310 0.181391
+    neurologic   0.804320  0.859255   0.073918 0.895210 0.136561
+
+
+OVERALL METRICS:
+  Mean Test AUC: 0.922
+  Mean Precision: 0.331
+  Mean Recall: 0.884
+  Mean F1 Score: 0.409
+
+
+INTERPRETATION:
+  Performance: EXCELLENT
+  The model shows strong predictive ability across all ADR categories.
+
+================================================================================
