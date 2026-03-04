@@ -363,8 +363,8 @@ if model is None:
 # MAIN TABS
 # ─────────────────────────────────────────────────────────────
 tab_predict, tab_validation = st.tabs([
-    "🔬 Risk Prediction",
-    "📊 Model Validation",
+    " Risk Prediction",
+    " Model Validation",
 ])
 
 # ═════════════════════════════════════════════════════════════
@@ -408,10 +408,10 @@ with tab_predict:
                 f"<div style='background:rgba(0,68,136,0.07);border-radius:8px;"
                 f"padding:0.7rem 1rem;margin:0.5rem 0;font-size:0.82rem;'>"
                 f"<b>Phase 2 signal (ROR):</b><br>"
-                f"🫁 Hepatotoxicity: <b>{risks['drug_risk_hepatotoxicity']:.1f}</b> &nbsp;|&nbsp; "
-                f"🫘 Nephrotoxicity: <b>{risks['drug_risk_nephrotoxicity']:.1f}</b><br>"
-                f"🦷 Tooth loss: <b>{risks['drug_risk_tooth_loss']:.0f}</b> &nbsp;|&nbsp; "
-                f"🦴 Bone: <b>{risks['drug_risk_bone_density_decreas']:.0f}</b>"
+                f" Hepatotoxicity: <b>{risks['drug_risk_hepatotoxicity']:.1f}</b> &nbsp;|&nbsp; "
+                f" Nephrotoxicity: <b>{risks['drug_risk_nephrotoxicity']:.1f}</b><br>"
+                f" Tooth loss: <b>{risks['drug_risk_tooth_loss']:.0f}</b> &nbsp;|&nbsp; "
+                f" Bone: <b>{risks['drug_risk_bone_density_decreas']:.0f}</b>"
                 f"</div>",
                 unsafe_allow_html=True
             )
@@ -436,7 +436,7 @@ with tab_predict:
                 label_visibility="collapsed"
             )
 
-        predict_btn = st.button("🔬 Calculate Risk Profile", use_container_width=True)
+        predict_btn = st.button(" Calculate Risk Profile", use_container_width=True)
 
     # ── Results Column ─────────────────────────────────────────────────────────
     with col_results:
@@ -601,7 +601,7 @@ with tab_predict:
 
             # ── Co-medication interaction panel ────────────
             if selected_comedications:
-                st.markdown("#### ⚗️ Drug Interaction Analysis")
+                st.markdown("####  Drug Interaction Analysis")
                 st.caption(
                     "These co-medications amplify specific ADR pathways through "
                     "shared biological mechanisms."
@@ -624,7 +624,7 @@ with tab_predict:
                     )
 
             # ── Drug-specific risk table ───────────────────
-            with st.expander(f"📋 {drug} — Phase 2 ADR Signal Breakdown (ROR)"):
+            with st.expander(f" {drug} — Phase 2 ADR Signal Breakdown (ROR)"):
                 st.caption(
                     "These ROR values come from your Phase 2 FAERS disproportionality "
                     "analysis. ROR > 2 with n ≥ 3 = confirmed pharmacovigilance signal."
@@ -697,8 +697,8 @@ with tab_predict:
                 )
         else:
             # Placeholder before prediction
-            st.info("👈 Fill in patient details and click **Calculate Risk Profile**")
-            with st.expander("ℹ️ What's new in this version?"):
+            st.info(" Fill in patient details and click **Calculate Risk Profile**")
+            with st.expander("What's new in this version?"):
                 st.markdown("""
 **Drug-specific ADR risk scores** (replacing polypharmacy count):
 - Each drug now carries its actual ROR from Phase 2 FAERS analysis
@@ -721,16 +721,16 @@ with tab_predict:
 # TAB 2 — VALIDATION
 # ═════════════════════════════════════════════════════════════
 with tab_validation:
-    st.markdown("## 📊 Model Validation Results")
+    st.markdown("##  Model Validation Results")
     st.markdown(
         "Comprehensive validation showing how the model performs on "
         "**future unseen data** and how upgraded features compare."
     )
 
     v_tab1, v_tab2, v_tab3 = st.tabs([
-        "⏱️ Temporal Validation",
-        "🧬 Feature Upgrade",
-        "💊 Population Risk Flags",
+        " Temporal Validation",
+        " Feature Upgrade",
+        " Population Risk Flags",
     ])
 
     # ── Temporal Validation ────────────────────────────────────────────────────
@@ -819,14 +819,14 @@ with tab_validation:
 
         col_old, col_new = st.columns(2)
         with col_old:
-            st.markdown("#### ❌ Old Approach")
+            st.markdown("####  Old Approach")
             st.code("polypharmacy_count = 5", language="text")
             st.markdown(
                 "Treats aspirin and cisplatin as identical.  \n"
                 "No information about which drugs or their toxicity profiles."
             )
         with col_new:
-            st.markdown("#### ✅ New Approach")
+            st.markdown("####  New Approach")
             st.code(
                 "drug_risk_nephrotoxicity     = 28.4\n"
                 "drug_risk_tooth_loss         = 2596\n"
