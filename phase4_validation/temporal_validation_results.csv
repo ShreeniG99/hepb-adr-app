@@ -1,0 +1,6 @@
+ADR,AUC,Recall,Precision,F1,Test_positives,Test_total,Train_size,Test_size
+hepatotoxicity,0.85,0.311,0.071,0.116,685,54946,94200,54946
+nephrotoxicity,0.951,0.839,0.658,0.737,7440,54946,94200,54946
+bone tooth,0.973,0.947,0.652,0.772,6955,54946,94200,54946
+hematologic,0.832,0.392,0.142,0.208,1755,54946,94200,54946
+neurologic,0.8,0.444,0.09,0.149,1818,54946,94200,54946
