@@ -48,3 +48,12 @@ backup/
 "@ | Out-File -FilePath .gitignore -Encoding UTF8
 
 Write-Host "✅ .gitignore created!" -ForegroundColor Green
+hepb_drug.csv
+hepb_indi.csv
+hepb_reac.csv
+hepb_demo.csv
+hepb_outc.csv
+feature_matrix.csv
+drug_adr_pairs.csv
+cohort_assignments.csv
+cohort_comparison.csv
