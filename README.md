@@ -3,7 +3,7 @@
 
 A machine learning system that predicts the risk of Adverse Drug Reactions (ADRs) in Hepatitis B patients *before* treatment, built on real-world FDA pharmacovigilance data.
 
-**Click this link to access a pdf file that explains everything about building this project from scratch:**
+Click this link to access a pdf file that explains everything about building this project from scratch:
 https://drive.google.com/file/d/1IRJ1SZtnxPPd-egwXX_egbKXTkngbwtN/view?usp=sharing
 ---
 
